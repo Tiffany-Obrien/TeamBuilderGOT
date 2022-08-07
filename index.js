@@ -6,11 +6,8 @@ const Employee = require('./lib/Employee.js');
 const fs = require('fs');
 const pageTemplate = require('./dist/pageTemplate');
 
-//array of employees to push data too
 var employees = [];
 
-
-//Make manager profile
 const managerProfile = function () {
     // prompts for manager
    return inquirer.prompt([
@@ -78,9 +75,6 @@ const managerProfile = function () {
 };
 
 
-
-
-///menu
 const menu = function () {
     //select engineer, intern, or finish team
   return  inquirer.prompt([
@@ -106,12 +100,12 @@ const menu = function () {
         {
             type: 'text',
             name: 'id',
-            message: 'What is the employee ID?',
+            message: 'What is the employee number?',
             validate: idInput => {
                 if (idInput) {
                     return true;
                 } else {
-                    console.log('You need to enter an ID!');
+                    console.log('You need to enter a number');
                     return false;
                 }
             }
@@ -119,12 +113,12 @@ const menu = function () {
         {
             type: 'text',
             name: 'email',
-            message: 'What is the email address of the employee?',
+            message: 'What is their email?',
             validate: emailInput => {
                 if (emailInput) {
                     return true;
                 } else {
-                    console.log('You need to enter an email!');
+                    console.log('You need to enter an email');
                     return false;
                 }
             }
@@ -132,13 +126,13 @@ const menu = function () {
         {
             type: 'text',
             name: 'github',
-            message: 'What is GitHub username of employee?',
+            message: 'What is their GitHub account?',
             when: (input) => input.role === 'Engineer',
             validate: github => {
                 if (github) {
                     return true;
                 } else {
-                    console.log('You need to enter a github username!');
+                    console.log('You need to enter a github username');
                     return false;
                 }
             }
@@ -146,24 +140,18 @@ const menu = function () {
         {
             type: 'text',
             name: 'school',
-            message: 'Where does the intern attend school?',
+            message: 'What school does the intern go to?',
             when: (input) => input.role === 'Intern',
             validate: school => {
                 if (school) {
                     return true;
                 } else {
-                    console.log('You need to enter a school!');
+                    console.log('You need to enter a school');
                     return false;
                 }
             }
         },
-        {
-            type: 'confirm',
-            name: 'confirmAddEmployee',
-            message: 'Would you like to add another employee?',
-            default: false
-        }
-
+     
     ])
     .then(employeesData => {
         let { name , id, email, role, github, school, confirmAddEmployee} = employeesData;
