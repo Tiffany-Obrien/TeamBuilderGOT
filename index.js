@@ -14,12 +14,12 @@ const managerProfile = function () {
         {
             type: 'text',
             name: 'name',
-            message: "What is the team manager's name?",
+            message: "What is the manager's name?",
             validate: name => {
                 if (name) {
                     return true;
                 } else {
-                    console.log('You need to enter a name!');
+                    console.log('You need to enter a name');
                     return false;
                 }
             }
@@ -27,12 +27,12 @@ const managerProfile = function () {
         {
             type: 'text',
             name: 'id',
-            message: 'What is the employee ID?',
+            message: 'What is the employee number?',
             validate: id => {
                 if (id) {
                     return true;
                 } else {
-                    console.log('You need to enter an id!');
+                    console.log('You need to enter an id');
                     return false;
                 }
             }
@@ -40,12 +40,12 @@ const managerProfile = function () {
         {
             type: 'text',
             name: 'email',
-            message: 'What is the email address of the employee?',
+            message: 'What is their emai?',
             validate: email => {
                 if (email) {
                     return true;
                 } else {
-                    console.log('You need to enter an email!');
+                    console.log('You need to enter an email');
                     return false;
                 }
             }
@@ -53,12 +53,12 @@ const managerProfile = function () {
         {
             type: 'text',
             name: 'office',
-            message: 'What is the office number of the employee?',
+            message: 'What is ther office number?',
             validate: office => {
                 if (office) {
                     return true;
                 } else {
-                    console.log('You need to enter an office number!');
+                    console.log('Enter an office number');
                     return false;
                 }
             }
@@ -92,7 +92,7 @@ const menu = function () {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('You need to enter a name!');
+                    console.log('You need to enter a name');
                     return false;
                 }
             }
